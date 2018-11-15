@@ -32,6 +32,7 @@ class IDCollection:
 	def remove(self, needle):
 		if hasattr(needle, 'id') and needle.id in self.ids_to_objects:
 			del self.ids_to_objects[needle.id]
+			self.ids.remove(needle.id)
 			return
 		try:
 			id, id_bytes = parse_id(needle)
@@ -42,6 +43,7 @@ class IDCollection:
 		else:
 			if id_bytes in self:
 				del self.ids_to_objects[id]
+				self.ids.remove(id)
 
 	def get(self, needle):
 		if hasattr(needle, 'id'):
