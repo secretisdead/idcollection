@@ -57,7 +57,7 @@ class IDCollection:
 		except ValueError:
 			return None
 		else:
-			if id_bytes in self:
+			if id in self:
 				return self.ids_to_objects[id]
 			return None
 
